@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Focal\Core\Support\UserModel;
+use Odden\Core\Support\UserModel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,8 +14,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $listsTable = config('focal-core.tables.lists', 'focal_lists');
-        $membershipsTable = config('focal-core.tables.list_memberships', 'focal_list_memberships');
+        $listsTable = config('odden-core.tables.lists', 'odden_lists');
+        $membershipsTable = config('odden-core.tables.list_memberships', 'odden_list_memberships');
 
         Schema::create($listsTable, function (Blueprint $table): void {
             $table->id();
@@ -35,8 +35,8 @@ return new class extends Migration
             $table->unsignedBigInteger('member_id');
             $table->timestamp('added_at')->useCurrent();
 
-            $table->index(['member_type', 'member_id'], 'focal_list_member_idx');
-            $table->unique(['list_id', 'member_type', 'member_id'], 'focal_list_member_unique');
+            $table->index(['member_type', 'member_id'], 'odden_list_member_idx');
+            $table->unique(['list_id', 'member_type', 'member_id'], 'odden_list_member_unique');
         });
     }
 
@@ -45,7 +45,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists(config('focal-core.tables.list_memberships', 'focal_list_memberships'));
-        Schema::dropIfExists(config('focal-core.tables.lists', 'focal_lists'));
+        Schema::dropIfExists(config('odden-core.tables.list_memberships', 'odden_list_memberships'));
+        Schema::dropIfExists(config('odden-core.tables.lists', 'odden_lists'));
     }
 };

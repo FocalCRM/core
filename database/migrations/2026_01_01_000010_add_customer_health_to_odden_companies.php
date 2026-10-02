@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $tableName = config('focal-core.tables.companies', 'focal_companies');
+        $tableName = config('odden-core.tables.companies', 'odden_companies');
 
         Schema::table($tableName, function (Blueprint $table): void {
             $table->unsignedSmallInteger('health_score')->default(70);
@@ -29,7 +29,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $tableName = config('focal-core.tables.companies', 'focal_companies');
+        $tableName = config('odden-core.tables.companies', 'odden_companies');
 
         Schema::table($tableName, function (Blueprint $table): void {
             $table->dropIndex(['health_status', 'health_score']);

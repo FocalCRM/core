@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $tableName = config('focal-core.tables.associations', 'focal_associations');
+        $tableName = config('odden-core.tables.associations', 'odden_associations');
 
         Schema::create($tableName, function (Blueprint $table): void {
             $table->id();
@@ -25,11 +25,11 @@ return new class extends Migration
             $table->string('type', 100)->default('default');
             $table->timestamps();
 
-            $table->index(['parent_type', 'parent_id'], 'focal_assoc_parent_idx');
-            $table->index(['child_type', 'child_id'], 'focal_assoc_child_idx');
+            $table->index(['parent_type', 'parent_id'], 'odden_assoc_parent_idx');
+            $table->index(['child_type', 'child_id'], 'odden_assoc_child_idx');
             $table->unique(
                 ['parent_type', 'parent_id', 'child_type', 'child_id', 'type'],
-                'focal_assoc_unique'
+                'odden_assoc_unique'
             );
         });
     }
@@ -39,7 +39,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $tableName = config('focal-core.tables.associations', 'focal_associations');
+        $tableName = config('odden-core.tables.associations', 'odden_associations');
 
         Schema::dropIfExists($tableName);
     }

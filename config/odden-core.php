@@ -3,7 +3,7 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | Focal Core Configuration
+    | Odden Core Configuration
     |--------------------------------------------------------------------------
     |
     | Database-agnostic configuration for core CRM models, table prefixes,
@@ -12,19 +12,19 @@ return [
     */
 
     'tables' => [
-        'contacts' => 'focal_contacts',
-        'companies' => 'focal_companies',
-        'properties' => 'focal_properties',
-        'property_groups' => 'focal_property_groups',
-        'associations' => 'focal_associations',
-        'association_types' => 'focal_association_types',
-        'activities' => 'focal_activities',
-        'property_history' => 'focal_property_history',
-        'lists' => 'focal_lists',
-        'list_memberships' => 'focal_list_memberships',
-        'lifecycle_stage_transitions' => 'focal_lifecycle_stage_transitions',
-        'custom_object_definitions' => 'focal_custom_object_definitions',
-        'custom_object_records' => 'focal_custom_object_records',
+        'contacts' => 'odden_contacts',
+        'companies' => 'odden_companies',
+        'properties' => 'odden_properties',
+        'property_groups' => 'odden_property_groups',
+        'associations' => 'odden_associations',
+        'association_types' => 'odden_association_types',
+        'activities' => 'odden_activities',
+        'property_history' => 'odden_property_history',
+        'lists' => 'odden_lists',
+        'list_memberships' => 'odden_list_memberships',
+        'lifecycle_stage_transitions' => 'odden_lifecycle_stage_transitions',
+        'custom_object_definitions' => 'odden_custom_object_definitions',
+        'custom_object_records' => 'odden_custom_object_records',
     ],
 
     /*
@@ -33,11 +33,11 @@ return [
     |--------------------------------------------------------------------------
     |
     | The Eloquent model used for owners, assignees and authors across all
-    | Focal packages. When null, the default auth provider's model is used
+    | Odden packages. When null, the default auth provider's model is used
     | (auth.providers.users.model).
     |
     */
-    'user_model' => env('FOCAL_USER_MODEL'),
+    'user_model' => env('ODDEN_USER_MODEL'),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,14 +78,14 @@ return [
     | Rate Limits
     |--------------------------------------------------------------------------
     |
-    | Requests per minute, per IP address, for the public routes Focal packages
+    | Requests per minute, per IP address, for the public routes Odden packages
     | register. "public" covers browser-facing submissions (forms, chat, portal
     | replies); "api" covers token-authenticated webhooks and sending APIs.
     |
     */
     'rate_limits' => [
-        'public' => (int) env('FOCAL_PUBLIC_RATE_LIMIT', 30),
-        'api' => (int) env('FOCAL_API_RATE_LIMIT', 600),
+        'public' => (int) env('ODDEN_PUBLIC_RATE_LIMIT', 30),
+        'api' => (int) env('ODDEN_API_RATE_LIMIT', 600),
     ],
 
     /*
@@ -98,7 +98,7 @@ return [
     |
     */
     'enrichment' => [
-        'driver' => env('FOCAL_ENRICHMENT_DRIVER', 'heuristic'),
+        'driver' => env('ODDEN_ENRICHMENT_DRIVER', 'heuristic'),
         'auto_enrich' => false,
     ],
 ];

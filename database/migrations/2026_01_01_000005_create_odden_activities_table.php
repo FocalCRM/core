@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-use Focal\Core\Enums\ActivityStatus;
-use Focal\Core\Enums\ActivityType;
-use Focal\Core\Support\UserModel;
+use Odden\Core\Enums\ActivityStatus;
+use Odden\Core\Enums\ActivityType;
+use Odden\Core\Support\UserModel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,7 +16,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $tableName = config('focal-core.tables.activities', 'focal_activities');
+        $tableName = config('odden-core.tables.activities', 'odden_activities');
 
         Schema::create($tableName, function (Blueprint $table): void {
             $table->id();
@@ -32,8 +32,8 @@ return new class extends Migration
             $table->json('metadata')->nullable();
             $table->timestamps();
 
-            $table->index(['subject_type', 'subject_id', 'created_at'], 'focal_activity_subject_idx');
-            $table->index(['type', 'status'], 'focal_activity_status_idx');
+            $table->index(['subject_type', 'subject_id', 'created_at'], 'odden_activity_subject_idx');
+            $table->index(['type', 'status'], 'odden_activity_status_idx');
         });
     }
 
@@ -42,7 +42,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $tableName = config('focal-core.tables.activities', 'focal_activities');
+        $tableName = config('odden-core.tables.activities', 'odden_activities');
 
         Schema::dropIfExists($tableName);
     }

@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Focal\Core\Enums\LifecycleStage;
-use Focal\Core\Support\UserModel;
+use Odden\Core\Enums\LifecycleStage;
+use Odden\Core\Support\UserModel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,7 +15,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $tableName = config('focal-core.tables.contacts', 'focal_contacts');
+        $tableName = config('odden-core.tables.contacts', 'odden_contacts');
 
         Schema::create($tableName, function (Blueprint $table): void {
             $table->id();
@@ -38,7 +38,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $tableName = config('focal-core.tables.contacts', 'focal_contacts');
+        $tableName = config('odden-core.tables.contacts', 'odden_contacts');
 
         Schema::dropIfExists($tableName);
     }

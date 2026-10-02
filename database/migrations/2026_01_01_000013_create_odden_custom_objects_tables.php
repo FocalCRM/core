@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Focal\Core\Support\UserModel;
+use Odden\Core\Support\UserModel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,8 +14,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $definitionsTable = config('focal-core.tables.custom_object_definitions', 'focal_custom_object_definitions');
-        $recordsTable = config('focal-core.tables.custom_object_records', 'focal_custom_object_records');
+        $definitionsTable = config('odden-core.tables.custom_object_definitions', 'odden_custom_object_definitions');
+        $recordsTable = config('odden-core.tables.custom_object_records', 'odden_custom_object_records');
 
         Schema::create($definitionsTable, function (Blueprint $table): void {
             $table->id();
@@ -47,8 +47,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $definitionsTable = config('focal-core.tables.custom_object_definitions', 'focal_custom_object_definitions');
-        $recordsTable = config('focal-core.tables.custom_object_records', 'focal_custom_object_records');
+        $definitionsTable = config('odden-core.tables.custom_object_definitions', 'odden_custom_object_definitions');
+        $recordsTable = config('odden-core.tables.custom_object_records', 'odden_custom_object_records');
 
         Schema::dropIfExists($recordsTable);
         Schema::dropIfExists($definitionsTable);

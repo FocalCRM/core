@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Schema;
 /**
  * Lead scoring and account tiering are used by core actions (merging, timeline
  * summaries, customer health), so core owns these columns. Earlier versions of
- * focalcrm/marketing created them, hence the guards for existing databases.
+ * getodden/crm-marketing created them, hence the guards for existing databases.
  */
 return new class extends Migration
 {
@@ -18,8 +18,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $contactsTable = config('focal-core.tables.contacts', 'focal_contacts');
-        $companiesTable = config('focal-core.tables.companies', 'focal_companies');
+        $contactsTable = config('odden-core.tables.contacts', 'odden_contacts');
+        $companiesTable = config('odden-core.tables.companies', 'odden_companies');
 
         if (! Schema::hasColumn($contactsTable, 'lead_score')) {
             Schema::table($contactsTable, function (Blueprint $table): void {
@@ -46,8 +46,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $contactsTable = config('focal-core.tables.contacts', 'focal_contacts');
-        $companiesTable = config('focal-core.tables.companies', 'focal_companies');
+        $contactsTable = config('odden-core.tables.contacts', 'odden_contacts');
+        $companiesTable = config('odden-core.tables.companies', 'odden_companies');
 
         Schema::table($companiesTable, function (Blueprint $table): void {
             $table->dropIndex(['account_tier', 'intent_score']);

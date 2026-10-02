@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $contactsTable = config('focal-core.tables.contacts', 'focal_contacts');
-        $companiesTable = config('focal-core.tables.companies', 'focal_companies');
+        $contactsTable = config('odden-core.tables.contacts', 'odden_contacts');
+        $companiesTable = config('odden-core.tables.companies', 'odden_companies');
 
         if (Schema::hasTable($contactsTable)) {
             Schema::table($contactsTable, function (Blueprint $table): void {
@@ -34,8 +34,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $contactsTable = config('focal-core.tables.contacts', 'focal_contacts');
-        $companiesTable = config('focal-core.tables.companies', 'focal_companies');
+        $contactsTable = config('odden-core.tables.contacts', 'odden_contacts');
+        $companiesTable = config('odden-core.tables.companies', 'odden_companies');
 
         if (Schema::hasTable($contactsTable)) {
             Schema::table($contactsTable, function (Blueprint $table): void {

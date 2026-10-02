@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Focal\Core\Enums\AssociationCardinality;
+use Odden\Core\Enums\AssociationCardinality;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,8 +14,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $typesTable = config('focal-core.tables.association_types', 'focal_association_types');
-        $associationsTable = config('focal-core.tables.associations', 'focal_associations');
+        $typesTable = config('odden-core.tables.association_types', 'odden_association_types');
+        $associationsTable = config('odden-core.tables.associations', 'odden_associations');
 
         Schema::create($typesTable, function (Blueprint $table): void {
             $table->id();
@@ -41,8 +41,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $typesTable = config('focal-core.tables.association_types', 'focal_association_types');
-        $associationsTable = config('focal-core.tables.associations', 'focal_associations');
+        $typesTable = config('odden-core.tables.association_types', 'odden_association_types');
+        $associationsTable = config('odden-core.tables.associations', 'odden_associations');
 
         Schema::table($associationsTable, function (Blueprint $table): void {
             $table->dropColumn(['association_type_id', 'label']);

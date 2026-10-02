@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Focal\Core\Enums\LifecycleStage;
-use Focal\Core\Support\UserModel;
+use Odden\Core\Enums\LifecycleStage;
+use Odden\Core\Support\UserModel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,9 +15,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $transitionsTable = config('focal-core.tables.lifecycle_stage_transitions', 'focal_lifecycle_stage_transitions');
-        $contactsTable = config('focal-core.tables.contacts', 'focal_contacts');
-        $companiesTable = config('focal-core.tables.companies', 'focal_companies');
+        $transitionsTable = config('odden-core.tables.lifecycle_stage_transitions', 'odden_lifecycle_stage_transitions');
+        $contactsTable = config('odden-core.tables.contacts', 'odden_contacts');
+        $companiesTable = config('odden-core.tables.companies', 'odden_companies');
 
         // Create lifecycle stage transitions table
         Schema::create($transitionsTable, function (Blueprint $table): void {
@@ -68,9 +68,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $transitionsTable = config('focal-core.tables.lifecycle_stage_transitions', 'focal_lifecycle_stage_transitions');
-        $contactsTable = config('focal-core.tables.contacts', 'focal_contacts');
-        $companiesTable = config('focal-core.tables.companies', 'focal_companies');
+        $transitionsTable = config('odden-core.tables.lifecycle_stage_transitions', 'odden_lifecycle_stage_transitions');
+        $contactsTable = config('odden-core.tables.contacts', 'odden_contacts');
+        $companiesTable = config('odden-core.tables.companies', 'odden_companies');
 
         Schema::dropIfExists($transitionsTable);
 

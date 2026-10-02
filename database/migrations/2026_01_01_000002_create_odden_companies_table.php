@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Focal\Core\Support\UserModel;
+use Odden\Core\Support\UserModel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $tableName = config('focal-core.tables.companies', 'focal_companies');
+        $tableName = config('odden-core.tables.companies', 'odden_companies');
 
         Schema::create($tableName, function (Blueprint $table): void {
             $table->id();
@@ -34,7 +34,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $tableName = config('focal-core.tables.companies', 'focal_companies');
+        $tableName = config('odden-core.tables.companies', 'odden_companies');
 
         Schema::dropIfExists($tableName);
     }

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Focal\Core\Support\UserModel;
+use Odden\Core\Support\UserModel;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $tableName = config('focal-core.tables.property_history', 'focal_property_history');
+        $tableName = config('odden-core.tables.property_history', 'odden_property_history');
 
         Schema::create($tableName, function (Blueprint $table): void {
             $table->id();
@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('source')->default('web')->index();
             $table->timestamp('created_at')->useCurrent()->index();
 
-            $table->index(['auditable_type', 'auditable_id', 'created_at'], 'focal_audit_target_idx');
+            $table->index(['auditable_type', 'auditable_id', 'created_at'], 'odden_audit_target_idx');
         });
     }
 
@@ -36,7 +36,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $tableName = config('focal-core.tables.property_history', 'focal_property_history');
+        $tableName = config('odden-core.tables.property_history', 'odden_property_history');
 
         Schema::dropIfExists($tableName);
     }

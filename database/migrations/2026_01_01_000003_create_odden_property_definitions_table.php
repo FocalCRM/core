@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Focal\Core\Enums\PropertyType;
+use Odden\Core\Enums\PropertyType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        $tableName = config('focal-core.tables.properties', 'focal_properties');
+        $tableName = config('odden-core.tables.properties', 'odden_properties');
 
         Schema::create($tableName, function (Blueprint $table): void {
             $table->id();
@@ -30,7 +30,7 @@ return new class extends Migration
             $table->unsignedInteger('sort_order')->default(0);
             $table->timestamps();
 
-            $table->unique(['entity_type', 'name'], 'focal_entity_prop_unique');
+            $table->unique(['entity_type', 'name'], 'odden_entity_prop_unique');
         });
     }
 
@@ -39,7 +39,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        $tableName = config('focal-core.tables.properties', 'focal_properties');
+        $tableName = config('odden-core.tables.properties', 'odden_properties');
 
         Schema::dropIfExists($tableName);
     }
